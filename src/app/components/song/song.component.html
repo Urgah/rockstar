@@ -1,0 +1,4 @@
+<div class="song">{{song.album}} - {{song.name}} 
+    <button (click)="removeFromPlaylist($event)" [hidden]="!inPlaylist"><fa-icon [icon]="faTimes"></fa-icon></button> 
+    <button (click)="addToPlaylist($event)" [hidden]="inPlaylist"><fa-icon [icon]="faPlus"></fa-icon></button>
+</div>

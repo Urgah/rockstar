@@ -1,0 +1,100 @@
+@black: #000;
+@darkGray: #232323;
+@white: #fff;
+@yellow: #ffe000;
+
+p {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+h2 {
+    font-size: 45px;
+}
+
+h3 {
+    font-size: 32px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+.black-button {
+    background-color: @black;
+    color: @white;
+    width: 125px;
+    height: 35px;
+    border: none;
+}
+
+.black-button:hover {
+    width: 150px;
+    height: 40px;
+}
+
+nav {
+    border-bottom: 1px solid @darkGray;
+    width: 100%;
+    height: 90px;
+
+    #logo {
+        width: 100px;
+        float: left;
+    }
+
+    #page-title {
+        float: left;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.yellow-button {
+    button {
+        background-color: @yellow;
+        color: @black;
+        width: 150px;
+        height: 35px;
+        border: none;
+        line-height: 30px;
+        cursor: pointer;
+    
+        fa-icon {
+            float: right;
+            margin-right: 10px;
+        }
+    
+        p {
+            float: left;
+            margin-left: 10px;
+        }
+    }
+    button:hover {
+        width: 165px;
+        height: 40px;
+        line-height: 35px;
+    }
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid lightgray;
+    color: @darkGray;
+}
+
+input:hover, input:active, input:focus {
+    border-bottom: 1px solid @darkGray;
+
+    &::placeholder {
+        color: @black;
+    }
+}
+

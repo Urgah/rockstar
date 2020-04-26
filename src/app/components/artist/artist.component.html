@@ -1,0 +1,10 @@
+<div class="artist">
+    <div class="artist-name" (click)="openDetail()">
+        <p>{{artist.name}}</p>
+        <fa-icon [icon]="faForward" ></fa-icon>
+    </div>
+
+    <div [hidden]="!detailed" class="songs">
+        <song *ngFor="let song of songs" [song]=song></song>
+    </div>
+</div>

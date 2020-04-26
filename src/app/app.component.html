@@ -1,0 +1,46 @@
+<div id="playlist-container">
+       <app-button id="open-playlist-modal" class="yellow-button" text="Playlist: {{ selectedPlaylist.name }}" (click)="open(playlistModal)"></app-button>
+</div>
+
+<div id="search-container">
+       <input [(ngModel)]="searchText"
+       placeholder="Search for an artists"
+       class="search-bar">
+
+       <app-button id="search-button" class="yellow-button" text="Search" (click)="search()"></app-button>     
+</div>
+
+<div id="artist-list">
+       <artist [artist]=artist *ngFor="let artist of artists"></artist>
+</div>
+
+<ng-template #playlistModal let-modal>
+       <div class="modal-header">
+         <h4 class="modal-title" id="modal-basic-title">{{ selectedPlaylist.name }}</h4>
+         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+           <span aria-hidden="true"><fa-icon [icon]="faTimes"></fa-icon></span>
+         </button>
+       </div>
+       <div class="modal-body">
+              <div id="new-playlist">
+                     <input [(ngModel)]="newPlaylist"
+                            placeholder="add playlist"
+                            id="new-playlist-input">
+                     <app-button id="new-playlist-add" class="yellow-button" text="Add playlist" (click)="addPlaylist()"></app-button>
+              </div>
+
+              <select [(ngModel)]="selectedPlaylist" name="status" placeholder="select" (ngModelChange)="setCurrentPlaylist()" id="set-playlist">
+                     <option *ngFor="let playlist of playlists" [ngValue]="playlist">
+                            {{ playlist.name }} 
+                     </option>
+              </select>
+              <fa-icon [icon]="faTimes" (click)="removePlaylist(selectedPlaylist)"></fa-icon>
+
+              <div class="songs">
+                     <song *ngFor="let song of selectedPlaylist.songs" [song]=song></song>
+              </div>
+       </div>
+       <div class="modal-footer">
+         <button type="button" id="close-modal" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+       </div>
+</ng-template>
