@@ -3,7 +3,7 @@ import { Playlist } from 'src/app/interfaces/playlist';
 import { HttpClient } from '@angular/common/http';
 import { Song } from 'src/app/interfaces/song';
 
-import { retry, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 
@@ -36,6 +36,7 @@ export class PlaylistService {
 
   deleteSongFromPlaylist(song: Song) {
     let songs: Song[] = this.currentPlaylist.songs.filter(function(value){ return value.id != song.id;});
+    this.currentPlaylist.songs = songs;
     return this.http.put<Playlist[]>(this.url + "/" + this.currentPlaylist.id, {id: this.currentPlaylist.id, name: this.currentPlaylist.name, songs: songs}).pipe(catchError(this.handleError));
   }
 
