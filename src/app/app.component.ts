@@ -19,7 +19,11 @@ export class AppComponent {
   artists: Artist[];
   playlists: Playlist[];
   newPlaylist: string;
-  selectedPlaylist: Playlist;
+  selectedPlaylist: Playlist = {
+      name: null,
+      id: null,
+      songs: []
+  };
   faTimes = faTimes;
   faPlus = faPlus;
 
